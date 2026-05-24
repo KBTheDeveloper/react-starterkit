@@ -1,23 +1,23 @@
-import { Table, Button, Form, Input, Spin } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { useUsers } from '@features/user/api/userApi';
-import { columns } from '@entities/user/model/const';
+import { Table, Spin } from "antd";
+import { useTranslation } from "react-i18next";
+
+import { columns } from "@entities/user/model/const";
+import { useUsers } from "@features/user/api/userApi";
 // import AddUser from '@features/user/addUser/ui/addUser';
 
 const UsersPage = () => {
-    const { t } = useTranslation();
-    const { data: users = [], isLoading, error } = useUsers();
+  const { t } = useTranslation();
+  const { data: users = [], isLoading, error } = useUsers();
 
-    // const [form] = Form.useForm();
+  // const [form] = Form.useForm();
 
-    if (isLoading) return <Spin size="large" />;
-    if (error) return <div>Error: {error.message}</div>;
+  if (isLoading) return <Spin size="large" />;
+  if (error) return <div>Error: {error.message}</div>;
 
-
-    return (
-        <>
-            <h2 className="mb-[20px]">{t('user_management')}</h2>
-            {/* <Form form={form} layout="inline" style={{ marginBottom: 16 }}>
+  return (
+    <>
+      <h2 className="mb-[20px]">{t("user_management")}</h2>
+      {/* <Form form={form} layout="inline" style={{ marginBottom: 16 }}>
                 <Form.Item name="name" rules={[{ required: true, message: t('name_required') }]}>
                     <Input placeholder={t('name')} />
                 </Form.Item>
@@ -31,11 +31,9 @@ const UsersPage = () => {
                     <AddUser form={form} />
                 </Form.Item>
             </Form> */}
-            <Table dataSource={users} columns={columns} rowKey="id" />
-        </>
-
-
-    );
+      <Table dataSource={users} columns={columns} rowKey="id" />
+    </>
+  );
 };
 
 export default UsersPage;

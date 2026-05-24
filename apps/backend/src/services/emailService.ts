@@ -1,44 +1,44 @@
-import nodemailer, { Transporter } from 'nodemailer';
+import nodemailer, { Transporter } from "nodemailer";
 
 let transporter: Transporter | null = null;
 
 const initTransporter = () => {
-    if (!transporter) {
-        transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: parseInt(process.env.SMTP_PORT || '587'),
-            secure: process.env.SMTP_SECURE === 'true',
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
-        });
-    }
-    return transporter;
+  if (!transporter) {
+    transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || "587"),
+      secure: process.env.SMTP_SECURE === "true",
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+  }
+  return transporter;
 };
 
 interface EmailOptions {
-    to: string;
-    subject: string;
-    text?: string;
-    html?: string;
+  to: string;
+  subject: string;
+  text?: string;
+  html?: string;
 }
 
 export const sendEmail = async (options: EmailOptions): Promise<void> => {
-    const transporter = initTransporter();
-    await transporter.sendMail({
-        from: process.env.EMAIL_FROM,
-        to: options.to,
-        subject: options.subject,
-        text: options.text,
-        html: options.html,
-    });
+  const transporter = initTransporter();
+  await transporter.sendMail({
+    from: process.env.EMAIL_FROM,
+    to: options.to,
+    subject: options.subject,
+    text: options.text,
+    html: options.html,
+  });
 };
 
 // Predefined email templates
 export const sendWelcomeEmail = async (to: string, name: string) => {
-    const subject = 'Welcome to our platform!';
-    const html = `
+  const subject = "Welcome to our platform!";
+  const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px;">
       <h2>Hello ${name},</h2>
       <p>Thank you for registering on our platform.</p>
@@ -47,5 +47,5 @@ export const sendWelcomeEmail = async (to: string, name: string) => {
       <p>Best regards,<br/>The Team</p>
     </div>
   `;
-    await sendEmail({ to, subject, html });
+  await sendEmail({ to, subject, html });
 };

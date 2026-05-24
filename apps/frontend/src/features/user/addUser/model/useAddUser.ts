@@ -1,9 +1,9 @@
 import { useCreateUser } from "@features/user/api/userApi";
 
 const useAddUser = () => {
-    const { mutate: createUser, isPending: isCreating } = useCreateUser();
+  const { mutate: createUser, isPending: isCreating } = useCreateUser();
 
-    return { isCreating, createUser }
-}
+  return { isCreating, createUser };
+};
 
-export default useAddUser
+export default useAddUser;

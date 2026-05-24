@@ -1,21 +1,22 @@
-import * as Sentry from '@sentry/react';
-import { reactRouterV6BrowserTracingIntegration } from '@sentry/react';
-import { isDevelopment } from './utils';
+import * as Sentry from "@sentry/react";
+import { reactRouterV6BrowserTracingIntegration } from "@sentry/react";
 
-export const initSentry = () => {
-    if (isDevelopment()) return;
+import isDevelopment from "./utils";
 
-    if (!import.meta.env.VITE_SENTRY_DSN) {
-        console.warn('Sentry DSN missing – skipping init');
-        return;
-    }
+export default () => {
+  if (isDevelopment()) return;
 
-    Sentry.init({
-        dsn: import.meta.env.VITE_SENTRY_DSN,
-        environment: import.meta.env.MODE,
-        integrations: [new reactRouterV6BrowserTracingIntegration()],
-        tracesSampleRate: 1.0,
-        replaysSessionSampleRate: 0.1,
-        replaysOnErrorSampleRate: 1.0,
-    });
+  if (!import.meta.env.VITE_SENTRY_DSN) {
+    console.warn("Sentry DSN missing – skipping init");
+    return;
+  }
+
+  Sentry.init({
+    dsn: import.meta.env.VITE_SENTRY_DSN,
+    environment: import.meta.env.MODE,
+    integrations: [new reactRouterV6BrowserTracingIntegration()],
+    tracesSampleRate: 1.0,
+    replaysSessionSampleRate: 0.1,
+    replaysOnErrorSampleRate: 1.0,
+  });
 };

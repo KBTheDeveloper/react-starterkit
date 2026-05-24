@@ -8,4 +8,4 @@ export {
   resetAuth,
   setUser,
   setLoading,
-} from './model';
+} from "./model";

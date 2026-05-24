@@ -1,10 +1,11 @@
-import { Card } from 'antd';
-import { FileManager } from '@features/profile/upload/ui/FileManager';
+import { Card } from "antd";
 
-export const ProfilePage = () => {
-    return (
-        <Card title="My Files">
-            <FileManager />
-        </Card>
-    );
-};
+import { FileManager } from "@features/profile/upload/ui/FileManager";
+
+const ProfilePage = () => (
+  <Card title="My Files">
+    <FileManager />
+  </Card>
+);
+
+export default ProfilePage;

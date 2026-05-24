@@ -1,9 +1,9 @@
-import { User as UserModel } from '../models/User.js';
+import { User as UserModel } from "../models/User.js";
 
 declare global {
-    namespace Express {
-        interface Request {
-            user?: UserModel;
-        }
+  namespace Express {
+    interface Request {
+      user?: UserModel;
     }
+  }
 }
