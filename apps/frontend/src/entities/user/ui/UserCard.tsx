@@ -13,11 +13,7 @@ interface UserCardProps {
   size?: "small" | "default";
 }
 
-export const UserCard = ({
-  user,
-  actions,
-  size = "default",
-}: UserCardProps) => (
+const UserCard = ({ user, actions, size = "default" }: UserCardProps) => (
   <Card size={size} actions={actions}>
     <Space direction="vertical" size="small" style={{ width: "100%" }}>
       <Title level={size === "small" ? 5 : 4}>
@@ -29,3 +25,5 @@ export const UserCard = ({
     </Space>
   </Card>
 );
+
+export default UserCard;

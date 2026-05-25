@@ -23,6 +23,7 @@ const sendToAnalytics = async (metric: Metric) => {
       }),
     });
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.warn("Failed to send web vitals", err);
   }
 };

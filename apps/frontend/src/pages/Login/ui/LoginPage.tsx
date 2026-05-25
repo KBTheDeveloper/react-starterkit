@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import { loginFx } from "@shared/lib/effector/auth";
+import { extractApiErrorMessage } from "@shared/types/error";
 
 const LoginPage = () => {
   const login = useUnit(loginFx);
@@ -15,8 +16,8 @@ const LoginPage = () => {
       await login(values);
       message.success(t("login_success"));
       navigate("/");
-    } catch (error: any) {
-      message.error(error.response?.data?.error || t("login_failed"));
+    } catch (error: unknown) {
+      message.error(extractApiErrorMessage(error, t("login_failed")));
     }
   };
 

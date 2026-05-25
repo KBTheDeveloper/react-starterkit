@@ -4,7 +4,7 @@ import DeleteUser from "@features/user/ui/deleteUser";
 
 import { User } from "..";
 
-export const columns: ColumnProps[] = [
+const columns: ColumnProps[] = [
   { title: "id", dataIndex: "id", key: "id" },
   { title: "name", dataIndex: "name", key: "name" },
   { title: "email", dataIndex: "email", key: "email" },
@@ -16,3 +16,5 @@ export const columns: ColumnProps[] = [
     render: (_, record: User) => <DeleteUser id={record.id} />,
   },
 ];
+
+export default columns;

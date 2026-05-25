@@ -32,7 +32,8 @@
     "socket.io-client": "^4.8.3",
     "web-vitals": "^5.2.0",
     "@vitejs/plugin-react": "^4.0.0",
-    "@originjs/vite-plugin-federation": "^1.4.1"
+    "@originjs/vite-plugin-federation": "^1.4.1",
+    "vite": "^4.4.11"
   },
   "devDependencies": {
     "@effector/redux-devtools-adapter": "^0.2.0",
@@ -64,7 +65,6 @@
     "prettier": "^3.8.3",
     "tailwindcss": "^3.4.19",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.3",
-    "vite": "^4.4.11"
+    "typescript-eslint": "^8.59.3"
   }
 }

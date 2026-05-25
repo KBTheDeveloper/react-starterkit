@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import "@shared/lib/i18n"; // initialization
 import { Spin } from "antd";
 
-export const I18nProvider = ({ children }: { children: React.ReactNode }) => (
+const I18nProvider = ({ children }: { children: React.ReactNode }) => (
   <Suspense
     fallback={
       <Spin
@@ -16,3 +16,5 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => (
     {children}
   </Suspense>
 );
+
+export default I18nProvider;

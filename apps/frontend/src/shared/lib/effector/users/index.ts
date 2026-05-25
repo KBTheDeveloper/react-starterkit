@@ -6,4 +6,4 @@ export {
   setUsers,
   addUserToList,
   resetUsers,
-} from "./model.ts";
+} from "./model";

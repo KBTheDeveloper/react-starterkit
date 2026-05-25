@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import { registerFx } from "@shared/lib/effector/auth";
+import { extractApiErrorMessage } from "@shared/types/error";
 import Captcha from "@shared/ui/Captcha";
 
 import { RegisterFormValues } from "../model/types";
@@ -32,8 +33,8 @@ const RegisterPage = () => {
       });
       message.success(t("register_success"));
       navigate("/");
-    } catch (error: any) {
-      message.error(error.response?.data?.error || t("register_failed"));
+    } catch (error: unknown) {
+      message.error(extractApiErrorMessage(error, t("register_failed")));
       // reset captcha on failure
       setCaptchaToken(null);
       form.resetFields(["captcha"]);

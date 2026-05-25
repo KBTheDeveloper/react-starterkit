@@ -12,14 +12,17 @@ export const connectSocket = () => {
   });
 
   socket.on("connect", () => {
+    // eslint-disable-next-line no-console
     console.log("Socket connected");
   });
 
   socket.on("disconnect", () => {
+    // eslint-disable-next-line no-console
     console.log("Socket disconnected");
   });
 
   socket.on("connect_error", (err) => {
+    // eslint-disable-next-line no-console
     console.error("Socket connection error:", err.message);
   });
 

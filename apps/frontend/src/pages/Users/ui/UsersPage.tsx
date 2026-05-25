@@ -1,7 +1,7 @@
 import { Table, Spin } from "antd";
 import { useTranslation } from "react-i18next";
 
-import { columns } from "@entities/user/model/const";
+import columns from "@entities/user/model/const";
 import { useUsers } from "@features/user/api/userApi";
 // import AddUser from '@features/user/addUser/ui/addUser';
 

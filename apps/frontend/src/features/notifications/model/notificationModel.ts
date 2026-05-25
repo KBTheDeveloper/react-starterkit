@@ -40,6 +40,7 @@ export const sendTestMessage = () => {
   if (socket?.connected) {
     socket.emit("message", { text: "Hello from client!" });
   } else {
+    // eslint-disable-next-line no-console
     console.warn("Socket not connected");
   }
 };

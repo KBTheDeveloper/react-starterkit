@@ -16,7 +16,7 @@ const useSendEmail = () => {
     try {
       await api.post("/email/send", values);
       message.success("Email sent");
-    } catch (err) {
+    } catch {
       message.error("Failed to send");
     } finally {
       setLoading(false);

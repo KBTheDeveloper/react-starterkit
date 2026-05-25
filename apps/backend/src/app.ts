@@ -7,6 +7,7 @@ import Sentry, { initSentry } from "./config/sentry.js";
 import fileRoutes from "./routes/fileRoutes.js";
 import emailRoutes from "./routes/emailRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
+import { errorHandler } from "./middleware/errorHandler.js";
 
 // Initialize Sentry before any other middleware
 initSentry();
@@ -28,6 +29,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/files", fileRoutes);
 app.use("/api/email", emailRoutes);
 app.use("/api/jobs", jobRoutes);
+
+app.use(errorHandler);
 
 Sentry.setupExpressErrorHandler(app);
 

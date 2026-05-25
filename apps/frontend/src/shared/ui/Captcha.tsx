@@ -11,6 +11,7 @@ const Captcha = ({ onChange }: CaptchaProps) => {
   const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
   if (!siteKey) {
+    // eslint-disable-next-line no-console
     console.warn("reCAPTCHA site key not set");
     return null;
   }

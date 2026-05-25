@@ -2,7 +2,7 @@ import { Button, Form, Input, Card } from "antd";
 
 import useSendEmail from "../model/useSendEmail";
 
-export const EmailSender = () => {
+const EmailSender = () => {
   const { loading, onFinish } = useSendEmail();
 
   return (
@@ -28,3 +28,5 @@ export const EmailSender = () => {
     </Card>
   );
 };
+
+export default EmailSender;

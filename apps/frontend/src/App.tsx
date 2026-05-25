@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import * as Sentry from "@sentry/react";
 import { useUnit } from "effector-react";
 
-import { I18nProvider } from "@app/providers/i18nProvider";
+import I18nProvider from "@app/providers/i18nProvider";
 import AntdProvider from "@providers/AntdProvider";
-import { QueryProvider } from "@providers/QueryProvider";
+import QueryProvider from "@providers/QueryProvider";
 import RouterProvider from "@providers/RouterProvider";
 import { checkAuthFx } from "@shared/lib/effector/auth";
 

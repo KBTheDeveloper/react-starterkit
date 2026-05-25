@@ -9,7 +9,7 @@ import {
   logoutFx,
 } from "@shared/lib/effector/auth";
 
-export const useAuth = () => {
+const useAuth = () => {
   const [user, loading, login, register, logout] = useUnit([
     $user,
     $isLoading,
@@ -19,3 +19,5 @@ export const useAuth = () => {
   ]);
   return { user, loading, login, register, logout };
 };
+
+export default useAuth;

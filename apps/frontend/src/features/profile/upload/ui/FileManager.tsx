@@ -7,7 +7,7 @@ import { Upload, Button, List, Spin, Popconfirm } from "antd";
 
 import useFileManager from "../model/useFileManager";
 
-export const FileManager = () => {
+const FileManager = () => {
   const { isLoading, files, handleUpload, uploadMutation, deleteMutation } =
     useFileManager();
 
@@ -53,3 +53,5 @@ export const FileManager = () => {
     </div>
   );
 };
+
+export default FileManager;

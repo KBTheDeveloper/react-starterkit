@@ -2,6 +2,7 @@ import { createStore, createEvent, createEffect, sample } from "effector";
 
 import type { User } from "@entities/user";
 import api from "@shared/api/client";
+import type { ApiAxiosError } from "@shared/types/error";
 
 // ---- Events ----
 export const setUser = createEvent<User | null>();
@@ -12,7 +13,7 @@ export const resetAuth = createEvent();
 export const loginFx = createEffect<
   { email: string; password: string },
   User,
-  Error
+  ApiAxiosError
 >({
   handler: async ({ email, password }) => {
     const { data } = await api.post<User>("/auth/login", { email, password });
@@ -23,7 +24,7 @@ export const loginFx = createEffect<
 export const registerFx = createEffect<
   { name: string; email: string; password: string; captchaToken: string },
   User,
-  Error
+  ApiAxiosError
 >({
   handler: async ({ name, email, password, captchaToken }) => {
     const { data } = await api.post("/auth/register", {
@@ -36,13 +37,13 @@ export const registerFx = createEffect<
   },
 });
 
-export const logoutFx = createEffect<void, void, Error>({
+export const logoutFx = createEffect<void, void, ApiAxiosError>({
   handler: async () => {
     await api.post("/auth/logout");
   },
 });
 
-export const checkAuthFx = createEffect<void, User | null, Error>({
+export const checkAuthFx = createEffect<void, User | null, ApiAxiosError>({
   handler: async () => {
     try {
       const { data } = await api.get<User>("/auth/me");

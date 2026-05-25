@@ -4,7 +4,7 @@ import { useUnit } from "effector-react";
 
 import { $notifications } from "../model/notificationModel";
 
-export const NotificationBell = () => {
+const NotificationBell = () => {
   const notifications = useUnit($notifications);
   const menuItems = notifications.map((msg, idx) => ({ key: idx, label: msg }));
 
@@ -20,3 +20,5 @@ export const NotificationBell = () => {
     </Dropdown>
   );
 };
+
+export default NotificationBell;
